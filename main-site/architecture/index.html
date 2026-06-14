@@ -76,21 +76,47 @@
     <p>Ourgani Code © 2026 — A framework by Multiplied Intelligence (Xi)</p>
   </footer>
 
-  <script>
+ <script>
 document.addEventListener('DOMContentLoaded', function() {
-  const dropdownItems = document.querySelectorAll('.nav-main .has-dropdown > a');
-  dropdownItems.forEach(link => {
-    link.addEventListener('click', function(e) {
-      if (window.innerWidth <= 992 || !this.parentElement.classList.contains('open')) {
-        e.preventDefault();
-        this.parentElement.classList.toggle('open');
-      }
-    });
+  const dropdownParents = document.querySelectorAll('.nav-main .has-dropdown');
+
+  dropdownParents.forEach(parent => {
+    const link = parent.querySelector('a');
+    const menu = parent.querySelector('.dropdown-menu');
+
+    // --- DESKTOP ---
+    if (window.innerWidth > 992) {
+      // Hover works naturally via CSS
+      // Clicking main link goes to page
+      link.addEventListener('click', () => true);
+    }
+
+    // --- MOBILE / TOUCH ---
+    else {
+      link.addEventListener('click', function(e) {
+        e.preventDefault(); // Stop default first tap
+        const isOpen = parent.classList.contains('open');
+
+        // Close ALL other dropdowns first
+        dropdownParents.forEach(p => {
+          if (p !== parent) p.classList.remove('open');
+        });
+
+        // Toggle THIS dropdown
+        parent.classList.toggle('open', !isOpen);
+
+        // If already open → follow link on second tap
+        if (isOpen) {
+          window.location.href = this.getAttribute('href');
+        }
+      });
+    }
   });
-  // Close when clicking outside
+
+  // Close all if clicking outside nav
   document.addEventListener('click', function(e) {
-    if (!e.target.closest('.has-dropdown')) {
-      document.querySelectorAll('.has-dropdown.open').forEach(el => el.classList.remove('open'));
+    if (!e.target.closest('.nav-main')) {
+      dropdownParents.forEach(p => p.classList.remove('open'));
     }
   });
 });
