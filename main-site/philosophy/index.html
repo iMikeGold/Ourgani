@@ -13,30 +13,31 @@
     <p>The principles and ideas that define how we build systems</p>
   </header>
 
- <nav class="nav-main">
-  <ul>
-    <li><a href="/">Home</a></li>
+  <nav class="nav-main">
+    <ul>
+      <li><a href="/">Home</a></li>
 
-    <li class="has-dropdown">
-      <a href="/philosophy/" class="active">Philosophy</a>
-      <ul class="dropdown-menu">
-        <li><a href="/philosophy/organic-code.html">Organic Code</a></li>
-        <li><a href="/philosophy/protosynthesis.html">ProtoSynthesis</a></li>
-        <li><a href="/philosophy/gani-methodology.html">GANi Methodology</a></li>
-      </ul>
-    </li>
+      <li class="has-dropdown">
+        <a href="/philosophy/" class="active">Philosophy</a>
+        <ul class="dropdown-menu">
+          <li><a href="/philosophy/organic-code.html">Ourgani Code</a></li>
+          <li><a href="/philosophy/protosynthesis.html">ProtoSynthesis</a></li>
+          <li><a href="/philosophy/gani-methodology.html">GANi Methodology</a></li>
+          <li><a href="/philosophy/ourgani-systems.html">Ourgani Systems</a></li>
+        </ul>
+      </li>
 
-    <li class="has-dropdown">
-      <a href="/architecture/">Architecture</a>
-      <ul class="dropdown-menu">
-        <li><a href="/architecture/system-architecture.html">System Architecture</a></li>
-        <li><a href="/architecture/operating-system.html">Operating Systems</a></li>
-      </ul>
-    </li>
+      <li class="has-dropdown">
+        <a href="/architecture/">Architecture</a>
+        <ul class="dropdown-menu">
+          <li><a href="/architecture/system-architecture.html">System Architecture</a></li>
+          <li><a href="/architecture/operating-system.html">Operating Systems</a></li>
+        </ul>
+      </li>
 
-    <li><a href="/applications/">Applications</a></li>
-  </ul>
-</nav>
+      <li><a href="/applications/">Applications</a></li>
+    </ul>
+  </nav>
 
   <section class="section-content">
     <h2>Core Principles</h2>
@@ -44,8 +45,8 @@
 
     <a href="/philosophy/organic-code.html" class="block-link">
       <div class="architecture-block">
-        <h3>Organic Code</h3>
-        <p>Technology that behaves like living systems — adaptive, resilient, and growing in harmony with its environment.</p>
+        <h3>Ourgani Code</h3>
+        <p>Technology that behaves like living systems — adaptive, resilient, and growing in harmony with its environment. Here we define the brand and core intent: <em>organic code</em> as the literal practice.</p>
       </div>
     </a>
 
@@ -58,8 +59,15 @@
 
     <a href="/philosophy/gani-methodology.html" class="block-link">
       <div class="architecture-block">
-        <h3>GANI Methodology</h3>
+        <h3>GANi Methodology</h3>
         <p>The practical method for applying these principles — learn, apply, and grow collective intelligence.</p>
+      </div>
+    </a>
+
+    <a href="/philosophy/ourgani-systems.html" class="block-link">
+      <div class="architecture-block">
+        <h3>Ourgani Systems</h3>
+        <p>The philosophical design of physical and operational structures — how infrastructure, platforms and elements are composed, governed and made meaningful.</p>
       </div>
     </a>
   </section>
@@ -78,26 +86,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // --- DESKTOP ---
     if (window.innerWidth > 992) {
-      // Hover works naturally via CSS
-      // Clicking main link goes to page
       link.addEventListener('click', () => true);
     }
 
     // --- MOBILE / TOUCH ---
     else {
       link.addEventListener('click', function(e) {
-        e.preventDefault(); // Stop default first tap
+        e.preventDefault();
         const isOpen = parent.classList.contains('open');
 
-        // Close ALL other dropdowns first
         dropdownParents.forEach(p => {
           if (p !== parent) p.classList.remove('open');
         });
 
-        // Toggle THIS dropdown
         parent.classList.toggle('open', !isOpen);
 
-        // If already open → follow link on second tap
         if (isOpen) {
           window.location.href = this.getAttribute('href');
         }
@@ -105,7 +108,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // Close all if clicking outside nav
   document.addEventListener('click', function(e) {
     if (!e.target.closest('.nav-main')) {
       dropdownParents.forEach(p => p.classList.remove('open'));
