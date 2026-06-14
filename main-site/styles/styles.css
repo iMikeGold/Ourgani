@@ -352,7 +352,7 @@ footer {
   text-decoration: none !important;
 }
 
-/* --- DROPDOWN NAVIGATION — SIDE BY SIDE, SLIM BANNER --- */
+/* --- DROPDOWN NAV — SIDE-BY-SIDE, SLIM BANNER --- */
 .nav-main ul {
   list-style: none;
   display: flex;
@@ -376,7 +376,6 @@ footer {
   margin-left: 0.3rem;
   transition: transform 0.25s ease;
 }
-.nav-main .has-dropdown.active > a::after,
 .nav-main .has-dropdown.open > a::after {
   transform: rotate(180deg);
 }
@@ -420,13 +419,25 @@ footer {
   padding-left: 1.8rem;
 }
 
-/* ✅ Hover open (desktop) + Click/tap to toggle (all devices) */
-.nav-main .has-dropdown:hover > .dropdown-menu,
-.nav-main .has-dropdown.open > .dropdown-menu {
-  display: block;
+/* ✅ DESKTOP: Hover = open, leave = close */
+@media (min-width: 993px) {
+  .nav-main .has-dropdown:hover > .dropdown-menu {
+    display: block;
+  }
+  .nav-main .has-dropdown:hover > a::after {
+    transform: rotate(180deg);
+  }
+  /* No forced open class on desktop hover */
 }
 
-/* ✅ Mobile: keep side‑by‑side until small screen, then wrap */
+/* ✅ MOBILE: Tap = toggle, no hover */
+@media (max-width: 992px) {
+  .nav-main .has-dropdown.open > .dropdown-menu {
+    display: block;
+  }
+}
+
+/* ✅ Mobile: keep side-by-side until small screen */
 @media (max-width: 768px) {
   .nav-main ul {
     flex-wrap: wrap;
