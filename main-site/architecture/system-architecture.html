@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Systems Architecture | Ourgani Code</title>
+  <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+
+  <header class="header-public">
+    <h1>Systems Architecture</h1>
+    <p>The infrastructure, platforms and capabilities that make Ourgani operable across every domain</p>
+  </header>
+
+  <nav class="nav-main">
+    <ul>
+      <li><a href="/">Home</a></li>
+
+      <li class="has-dropdown">
+        <a href="/philosophy/">Philosophy</a>
+        <ul class="dropdown-menu">
+          <li><a href="/philosophy/organic-code.html">Organic Code</a></li>
+          <li><a href="/philosophy/protosynthesis.html">ProtoSynthesis</a></li>
+          <li><a href="/philosophy/gani-methodology.html">GANi Methodology</a></li>
+        </ul>
+      </li>
+
+      <li class="has-dropdown">
+        <a href="/architecture/" class="active">Architecture</a>
+        <ul class="dropdown-menu">
+          <li><a href="/architecture/system-architecture.html" class="active">System Architecture</a></li>
+          <li><a href="/architecture/operating-system.html">Operating Systems</a></li>
+        </ul>
+      </li>
+
+      <li><a href="/applications/">Applications</a></li>
+    </ul>
+  </nav>
+
+  <section class="section-content">
+    <h2>Foundational Infrastructure</h2>
+    <p>Ourgani is not only a framework of ideas — it is underpinned by a complete, resilient infrastructure designed to operate reliably, scale seamlessly, and support every kind of system we build or enable. These capabilities form the backbone that allows our principles to become working reality.</p>
+
+    <div class="architecture-block">
+      <h3>🖥️ Server & Compute Infrastructure</h3>
+      <p>Distributed, high‑availability compute environments — combining on‑premise, private cloud and partner‑hosted platforms. Built for redundancy, security and performance, capable of supporting everything from small internal tools to large‑scale enterprise ecosystems. Designed to be location‑independent and fully portable.</p>
+    </div>
+
+    <div class="architecture-block">
+      <h3>🗄️ Database & Data Management</h3>
+      <p>Structured and unstructured data systems optimised for integrity, accessibility and growth. We use layered storage models that separate active working data from long‑term preservation, ensuring speed today and safety for tomorrow. All designed to align with Ourgani principles of structure and flow — organised but never rigid.</p>
+    </div>
+
+    <div class="architecture-block">
+      <h3>🌐 Web & Application Hosting</h3>
+      <p>Flexible hosting environments supporting static sites, dynamic platforms, custom web applications and APIs. Configurable for high traffic, secure transactions or internal tools — all managed with consistent standards so any service can be moved, scaled or replicated without re‑engineering.</p>
+    </div>
+
+    <div class="architecture-block">
+      <h3>✉️ Communication & Collaboration Services</h3>
+      <p>Managed email, secure messaging, shared workspaces and identity systems — including offerings such as <strong>OG Mail</strong>. These services are developed and operated using Ourgani OS logic, but are made available through separate partner entities or brands. They demonstrate how our architecture powers familiar, reliable tools used daily across groups and ecosystems.</p>
+    </div>
+
+    <h2>Capabilities in Action</h2>
+    <p>This infrastructure already supports a wide range of operational domains — showing how Ourgani‑designed systems work in practice:</p>
+
+    <div class="architecture-block">
+      <h3>📻 Media & Broadcast Systems</h3>
+      <p>Platforms that power radio stations and content networks — from scheduling and playout to listener engagement and distribution. Built to be stable 24/7 while remaining flexible enough for live change and creative control.</p>
+    </div>
+
+    <div class="architecture-block">
+      <h3>🛒 Digital Commerce</h3>
+      <p>Online shops, marketplaces and transactional systems — secure, scalable and integrated with inventory, logistics and customer intelligence. Designed to grow from small start‑ups to multi‑channel retail operations.</p>
+    </div>
+
+    <div class="architecture-block">
+      <h3>📱 Custom Applications — Web & Mobile</h3>
+      <p>Development and hosting of bespoke tools, client portals and mobile applications. Each built on the same core layers, so they connect easily, share data safely and evolve together over time.</p>
+    </div>
+
+    <div class="architecture-block">
+      <h3>🧠 Automated Intelligence</h3>
+      <p>Systems that observe, learn, adapt and act — what we call <em>Automated Intelligence</em> — not generic AI, but tailored logic built specifically for the context it serves. It turns data into understanding, and understanding into consistent, automated action that supports people rather than replacing them.</p>
+    </div>
+
+    <h2>How These Services Are Delivered</h2>
+    <p>Ourgani does not typically sell these services directly to end clients. Instead, we build, manage and maintain the infrastructure and platforms, which are then offered, branded and delivered through separate partner entities or related organisations — such as legacy or purpose‑built brands like <em>Just Enterprises</em> and its networks. This allows us to focus on the engineering, resilience and evolution of the systems, while partners focus on bringing them to market and serving their communities.</p>
+    <p>In this way, Ourgani acts as the unseen operating system behind many different offerings — powerful, universal and always consistent with our philosophy — while remaining independent and focused on capability rather than direct sales.</p>
+
+    <div class="cta-block">
+      <p>Next: See how these systems are configured into complete operating models</p>
+      <a href="/architecture/operating-system.html" class="btn">Operating Systems →</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>Ourgani Code © 2026 — A framework by Multiplied Intelligence (Xi)</p>
+  </footer>
+
+  <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const dropdownParents = document.querySelectorAll('.nav-main .has-dropdown');
+
+  dropdownParents.forEach(parent => {
+    const link = parent.querySelector('a');
+    const menu = parent.querySelector('.dropdown-menu');
+
+    // --- DESKTOP ---
+    if (window.innerWidth > 992) {
+      link.addEventListener('click', () => true);
+    }
+
+    // --- MOBILE / TOUCH ---
+    else {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const isOpen = parent.classList.contains('open');
+
+        dropdownParents.forEach(p => {
+          if (p !== parent) p.classList.remove('open');
+        });
+
+        parent.classList.toggle('open', !isOpen);
+
+        if (isOpen) {
+          window.location.href = this.getAttribute('href');
+        }
+      });
+    }
+  });
+
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.nav-main')) {
+      dropdownParents.forEach(p => p.classList.remove('open'));
+    }
+  });
+});
+</script>
+
+</body>
+</html>
