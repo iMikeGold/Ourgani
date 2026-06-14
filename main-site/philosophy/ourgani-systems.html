@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ourgani Systems | Ourgani Code</title>
+  <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+
+  <header class="header-public">
+    <h1>Ourgani Systems</h1>
+    <p>The philosophy behind how we build, arrange and govern the structures that make ideas real</p>
+  </header>
+
+  <nav class="nav-main">
+    <ul>
+      <li><a href="/">Home</a></li>
+
+      <li class="has-dropdown">
+        <a href="/philosophy/" class="active">Philosophy</a>
+        <ul class="dropdown-menu">
+          <li><a href="/philosophy/organic-code.html">Ourgani Code</a></li>
+          <li><a href="/philosophy/protosynthesis.html">ProtoSynthesis</a></li>
+          <li><a href="/philosophy/gani-methodology.html">GANi Methodology</a></li>
+          <li><a href="/philosophy/ourgani-systems.html" class="active">Ourgani Systems</a></li>
+        </ul>
+      </li>
+
+      <li class="has-dropdown">
+        <a href="/architecture/">Architecture</a>
+        <ul class="dropdown-menu">
+          <li><a href="/architecture/system-architecture.html">System Architecture</a></li>
+          <li><a href="/architecture/operating-system.html">Operating Systems</a></li>
+        </ul>
+      </li>
+
+      <li><a href="/applications/">Applications</a></li>
+    </ul>
+  </nav>
+
+  <section class="section-content">
+    <h2>From Principle to Structure</h2>
+    <p>Ourgani Systems is the bridge between abstract philosophy and tangible reality. It defines <em>how we think about the physical, digital and operational elements</em> that make Ourgani operable — servers, databases, networks, tools, teams and processes are not just “equipment” — they are carefully composed elements that carry our principles into action.</p>
+
+    <p>Just as nature assembles cells into tissues, tissues into organs, and organs into living beings — we assemble infrastructure, platforms and services into coherent, living systems. Every part has a purpose, every connection has meaning, and the whole is always greater than the sum of its parts.</p>
+
+    <div class="architecture-block">
+      <h3>🧱 Elements of a System</h3>
+      <p>We do not build generic technology — we build <em>organised capability</em>. This includes:</p>
+      <ul class="principles-list">
+        <li><strong>Physical & Digital Infrastructure</strong> — servers, hosting, storage, networks — designed for resilience and flow</li>
+        <li><strong>Platforms & Services</strong> — communication, data management, application environments — built to be reusable and independent</li>
+        <li><strong>Governance & Logic</strong> — rules, standards and methods that ensure consistency, safety and evolution</li>
+        <li><strong>People & Process</strong> — how work happens, how knowledge is shared, how decisions are made</li>
+      </ul>
+    </div>
+
+    <div class="architecture-block">
+      <h3>⚖ Design Principles for Ourgani Systems</h3>
+      <p>Every system we create follows the same core rules, derived directly from ProtoSynthesis and Ourgani Code:</p>
+      <ul class="principles-list">
+        <li><strong>Modularity</strong> — parts can be changed, upgraded or moved without breaking the whole</li>
+        <li><strong>Independence</strong> — layers and components work on their own, but connect easily</li>
+        <li><strong>Scalability</strong> — grows naturally, no forced rebuild when needs change</li>
+        <li><strong>Alignment</strong> — every element serves the core purpose; nothing exists without reason</li>
+      </ul>
+    </div>
+
+    <h2>Where Philosophy Becomes Capability</h2>
+    <p>This philosophical approach is what shapes our actual infrastructure and operations. The way we think about systems directly defines what we build, how we manage it, and how it is offered — usually through partner entities or separate brands, so that Ourgani remains the unseen, consistent foundation.</p>
+
+    <div class="cta-block">
+      <p>See how these ideas are built into our actual infrastructure and capabilities →</p>
+      <a href="/architecture/system-architecture.html" class="btn">Explore Systems Architecture →</a>
+    </div>
+
+    <div class="cta-block">
+      <p>Next: The method we use to design and evolve every system we build</p>
+      <a href="/philosophy/gani-methodology.html" class="btn">GANi Methodology →</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>Ourgani Code © 2026 — A framework by Multiplied Intelligence (Xi)</p>
+  </footer>
+
+  <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const dropdownParents = document.querySelectorAll('.nav-main .has-dropdown');
+
+  dropdownParents.forEach(parent => {
+    const link = parent.querySelector('a');
+    const menu = parent.querySelector('.dropdown-menu');
+
+    // --- DESKTOP ---
+    if (window.innerWidth > 992) {
+      link.addEventListener('click', () => true);
+    }
+
+    // --- MOBILE / TOUCH ---
+    else {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const isOpen = parent.classList.contains('open');
+
+        dropdownParents.forEach(p => {
+          if (p !== parent) p.classList.remove('open');
+        });
+
+        parent.classList.toggle('open', !isOpen);
+
+        if (isOpen) {
+          window.location.href = this.getAttribute('href');
+        }
+      });
+    }
+  });
+
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.nav-main')) {
+      dropdownParents.forEach(p => p.classList.remove('open'));
+    }
+  });
+});
+</script>
+
+</body>
+</html>
