@@ -1,0 +1,157 @@
+:root {
+  --core-intel: #222222;
+  --backend: #3A5F7A;
+  --corporate: #B4862A;
+  --community: #2A7F62;
+  --media: #7B2CBF;
+  --creative: #C25E00;
+  --vision: #1E6091;
+  --data: #344955;
+  --healing: #238B45;
+  --text: #333333;
+  --light: #F8F9FA;
+  --white: #FFFFFF;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+body {
+  background: var(--light);
+  color: var(--text);
+  line-height: 1.6;
+}
+header {
+  padding: 2rem 5%;
+  text-align: center;
+  color: var(--white);
+}
+.header-public { background: var(--core-intel); }
+.header-system { background: var(--core-intel); }
+.header-registry { background: var(--core-intel); }
+.tagline {
+  font-style: italic;
+  margin-top: 0.5rem;
+  opacity: 0.9;
+}
+.nav-main {
+  background: var(--white);
+  padding: 1rem 5%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.nav-main ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.nav-main a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+  transition: color 0.3s;
+}
+.nav-main a:hover, .nav-main a.active {
+  color: var(--core-intel);
+  border-bottom: 2px solid var(--core-intel);
+}
+.section-content {
+  padding: 3rem 5%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--core-intel);
+  border-bottom: 3px solid;
+  padding-bottom: 0.3rem;
+}
+h3 {
+  margin: 2rem 0 1rem;
+  color: var(--core-intel);
+}
+/* Used in System Architecture page for pillar descriptions */
+.architecture-block {
+  background: var(--white);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  margin-bottom: 1.5rem;
+}
+.architecture-block ul {
+  margin: 1rem 0 0 1.5rem;
+}
+.principles-list {
+  margin: 1rem 0 1rem 1.5rem;
+}
+.cta-block {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: var(--white);
+  border-radius: 8px;
+  text-align: center;
+}
+.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background: var(--core-intel);
+  color: var(--white);
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+.btn:hover {
+  background: #444;
+}
+.registry-table {
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+}
+th, td {
+  padding: 0.8rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--light);
+}
+th {
+  background: var(--core-intel);
+  color: var(--white);
+}
+.code-block {
+  background: var(--white);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-top: 2rem;
+  overflow-x: auto;
+}
+pre {
+  font-family: monospace;
+  font-size: 0.9rem;
+  color: #222;
+}
+footer {
+  background: var(--core-intel);
+  color: var(--white);
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: 3rem;
+}
+@media (max-width: 768px) {
+  h2 { font-size: 1.6rem; }
+  .nav-main ul { gap: 1rem; }
+}
