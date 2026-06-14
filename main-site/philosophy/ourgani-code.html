@@ -3,44 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Organic Code | Ourgani Code</title>
+  <title>Ourgani Code | Ourgani Code</title>
   <link rel="stylesheet" href="/styles/styles.css">
 </head>
 <body>
 
   <header class="header-public">
-    <h1>Organic Code</h1>
+    <h1>Ourgani Code</h1>
     <p>Systems that grow, adapt, and heal — just like nature</p>
   </header>
 
-<nav class="nav-main">
-  <ul>
-    <li><a href="/">Home</a></li>
+  <nav class="nav-main">
+    <ul>
+      <li><a href="/">Home</a></li>
 
-    <li class="has-dropdown">
-      <a href="/philosophy/" class="active">Philosophy</a>
-      <ul class="dropdown-menu">
-        <li><a href="/philosophy/organic-code.html">Organic Code</a></li>
-        <li><a href="/philosophy/protosynthesis.html">ProtoSynthesis</a></li>
-        <li><a href="/philosophy/gani-methodology.html">GANi Methodology</a></li>
-      </ul>
-    </li>
+      <li class="has-dropdown">
+        <a href="/philosophy/" class="active">Philosophy</a>
+        <ul class="dropdown-menu">
+          <li><a href="/philosophy/ourgani-code.html" class="active">Ourgani Code</a></li>
+          <li><a href="/philosophy/protosynthesis.html">ProtoSynthesis</a></li>
+          <li><a href="/philosophy/gani-methodology.html">GANi Methodology</a></li>
+          <li><a href="/philosophy/ourgani-systems.html">Ourgani Systems</a></li>
+        </ul>
+      </li>
 
-    <li class="has-dropdown">
-      <a href="/architecture/">Architecture</a>
-      <ul class="dropdown-menu">
-        <li><a href="/architecture/system-architecture.html">System Architecture</a></li>
-        <li><a href="/architecture/operating-system.html">Operating Systems</a></li>
-      </ul>
-    </li>
+      <li class="has-dropdown">
+        <a href="/architecture/">Architecture</a>
+        <ul class="dropdown-menu">
+          <li><a href="/architecture/system-architecture.html">System Architecture</a></li>
+          <li><a href="/architecture/operating-system.html">Operating Systems</a></li>
+        </ul>
+      </li>
 
-    <li><a href="/applications/">Applications</a></li>
-  </ul>
-</nav>
+      <li><a href="/applications/">Applications</a></li>
+    </ul>
+  </nav>
 
   <section class="section-content">
-    <h2>What is Organic Code?</h2>
-    <p>Organic Code is our design philosophy: systems should not be rigid, static, or brittle. Instead, they should be modelled after biological systems — modular, interconnected, and capable of[...]
+    <h2>What is Ourgani Code?</h2>
+    <p><strong>Ourgani Code</strong> is our brand name and core identity. When we speak of <em>organic code</em> in the literal sense, we mean exactly this design philosophy:</p>
+
+    <p>Organic Code is our design philosophy: systems should not be rigid, static, or brittle. Instead, they should be modelled after biological systems — modular, interconnected, and capable of evolving over time. Just like living organisms, they respond to change, repair themselves, and become more capable as they grow, rather than needing to be replaced or rebuilt from scratch.</p>
 
     <h3>Key Concepts</h3>
     <ul class="principles-list">
@@ -51,15 +54,16 @@
     </ul>
 
     <div class="cta-block">
-      <p>Next: <a href="/philosophy/protosynthesis.html" class="btn">ProtoSynthesis →</a></p>
+      <p>Next: The foundational law that governs all systems →</p>
+      <a href="/philosophy/protosynthesis.html" class="btn">ProtoSynthesis →</a>
     </div>
   </section>
 
   <footer>
     <p>Ourgani Code © 2026 — A framework by Multiplied Intelligence (Xi)</p>
   </footer>
-  
-<script>
+
+  <script>
 document.addEventListener('DOMContentLoaded', function() {
   const dropdownParents = document.querySelectorAll('.nav-main .has-dropdown');
 
@@ -69,26 +73,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // --- DESKTOP ---
     if (window.innerWidth > 992) {
-      // Hover works naturally via CSS
-      // Clicking main link goes to page
       link.addEventListener('click', () => true);
     }
 
     // --- MOBILE / TOUCH ---
     else {
       link.addEventListener('click', function(e) {
-        e.preventDefault(); // Stop default first tap
+        e.preventDefault();
         const isOpen = parent.classList.contains('open');
 
-        // Close ALL other dropdowns first
         dropdownParents.forEach(p => {
           if (p !== parent) p.classList.remove('open');
         });
 
-        // Toggle THIS dropdown
         parent.classList.toggle('open', !isOpen);
 
-        // If already open → follow link on second tap
         if (isOpen) {
           window.location.href = this.getAttribute('href');
         }
@@ -96,7 +95,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // Close all if clicking outside nav
   document.addEventListener('click', function(e) {
     if (!e.target.closest('.nav-main')) {
       dropdownParents.forEach(p => p.classList.remove('open'));
@@ -104,6 +102,6 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 </script>
-  
+
 </body>
 </html>
