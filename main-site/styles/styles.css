@@ -352,24 +352,38 @@ footer {
   text-decoration: none !important;
 }
 
-/* --- CORRECT DROPDOWN NAVIGATION --- */
+/* --- DROPDOWN NAVIGATION — SIDE BY SIDE, SLIM BANNER --- */
 .nav-main ul {
   list-style: none;
   display: flex;
   gap: 3rem;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: center;
   margin: 0;
   padding: 0;
+  position: relative;
 }
 
 .nav-main li {
   position: relative;
 }
 
-/* ✅ HIDE dropdown properly by default */
+/* ✅ Arrow ONLY on items with dropdown */
+.nav-main .has-dropdown > a::after {
+  content: " ▾";
+  font-size: 0.75rem;
+  opacity: 0.65;
+  margin-left: 0.3rem;
+  transition: transform 0.25s ease;
+}
+.nav-main .has-dropdown.active > a::after,
+.nav-main .has-dropdown.open > a::after {
+  transform: rotate(180deg);
+}
+
+/* ✅ Hide dropdown by default */
 .nav-main .dropdown-menu {
-  display: none !important;
+  display: none;
   position: absolute;
   top: 100%;
   left: 0;
@@ -406,31 +420,16 @@ footer {
   padding-left: 1.8rem;
 }
 
-/* ✅ SHOW dropdown on hover (desktop) */
-.nav-main li:hover > .dropdown-menu {
-  display: block !important;
+/* ✅ Hover open (desktop) + Click/tap to toggle (all devices) */
+.nav-main .has-dropdown:hover > .dropdown-menu,
+.nav-main .has-dropdown.open > .dropdown-menu {
+  display: block;
 }
 
-/* ✅ Mobile support — tap to open */
+/* ✅ Mobile: keep side‑by‑side until small screen, then wrap */
 @media (max-width: 768px) {
   .nav-main ul {
-    flex-direction: column;
-    gap: 0.5rem;
-    text-align: center;
-  }
-  .nav-main .dropdown-menu {
-    position: static;
-    box-shadow: none;
-    border: none;
-    background: rgba(255,255,255,0.6);
-    margin-top: 0.3rem;
-  }
-  .nav-main li > a::after {
-    content: " ▾";
-    font-size: 0.8rem;
-    opacity: 0.6;
-  }
-  .nav-main li.active > a::after {
-    content: "";
+    flex-wrap: wrap;
+    gap: 1rem 2rem;
   }
 }
