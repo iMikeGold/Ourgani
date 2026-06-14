@@ -336,3 +336,72 @@ footer {
   body.home-page::after { width: 60px; height: 60px; top: 1rem; right: 1rem; }
   body::before { background-size: 80vmin; }
 }
+
+/* --- FIX: Remove underlines from clickable blocks --- */
+.block-link,
+.block-link:visited,
+.block-link:hover,
+.block-link:active {
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+.block-link h3,
+.block-link p {
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+
+/* --- DROPDOWN NAVIGATION --- */
+.nav-main li {
+  position: relative;
+}
+
+/* Hide dropdown by default */
+.nav-main .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(12px);
+  min-width: 200px;
+  padding: 0.5rem 0;
+  margin: 0;
+  list-style: none;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  border-radius: 0 0 8px 8px;
+  border: var(--border-sharp);
+  z-index: 200;
+}
+
+/* Dropdown links style */
+.nav-main .dropdown-menu a {
+  display: block;
+  padding: 0.7rem 1.2rem;
+  color: var(--text-dark);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border-bottom: none !important;
+}
+.nav-main .dropdown-menu a:hover {
+  background: rgba(123, 97, 255, 0.08);
+  color: var(--accent-balance);
+  padding-left: 1.5rem;
+}
+
+/* Show on hover (desktop) */
+.nav-main li:hover > .dropdown-menu {
+  display: block;
+}
+
+/* Mobile support — tap to open */
+@media (max-width: 768px) {
+  .nav-main li > a::after {
+    content: " ▾";
+    font-size: 0.8rem;
+    opacity: 0.6;
+  }
+  .nav-main li.active > a::after {
+    content: "";
+  }
+}
